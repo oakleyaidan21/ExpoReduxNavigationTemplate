@@ -9,6 +9,8 @@ Then, change the application's `name` and `slug` properties in `app.json` to wha
 
 Now, your project should be unique. 
 
+Run `npm install` and `expo start` in order to start running the project
+
 ## Basic Usage
 
 ... 
