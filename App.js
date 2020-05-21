@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-import { createStore } from "redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
-import reducer from "./redux/reducer.js";
 import AuthorizedNavigator from "./navigation/authorizedNavigator.js";
 import UnauthorizedNavigator from "./navigation/unauthorizedNavigator.js";
 import AppLoading from "./screens/AppLoading";
