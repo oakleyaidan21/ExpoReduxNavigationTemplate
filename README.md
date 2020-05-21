@@ -27,7 +27,7 @@ This template facilitates this flow.
 
 ### Navigation
 
-You can find the beginnings of the two navigators in the `navigation` folder. In order to add more screens, you can look at the documentation here. Here's a simple example of how to add another screen:
+You can find the beginnings of the two navigators in the `navigation` folder. In order to add more screens and facilitate their navigation, you can look at the documentation [here](https://reactnavigation.org/docs/getting-started). Here's a simple example of how to add another screen:
 
 1. Create the screen file as a react component, as shown in `Home.js`, i.e. `Welcome.js`:
 
