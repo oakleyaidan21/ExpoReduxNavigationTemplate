@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import { createStore } from "redux";
+import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
+import { store, persistor } from "./redux/store";
 import reducer from "./redux/reducer.js";
 import AuthorizedNavigator from "./navigation/authorizedNavigator.js";
 import UnauthorizedNavigator from "./navigation/unauthorizedNavigator.js";
 import AppLoading from "./screens/AppLoading";
-
-const store = createStore(reducer);
 
 class App extends Component {
   constructor(props) {
@@ -31,17 +31,19 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        {this.state.assetsLoaded && this.state.isAuthenticationReady ? (
-          <View style={{ flex: 1 }}>
-            {this.state.isAuthenticated === true ? (
-              <AuthorizedNavigator />
-            ) : (
-              <UnauthorizedNavigator />
-            )}
-          </View>
-        ) : (
-          <AppLoading />
-        )}
+        <PersistGate loading={null} persistor={persistor}>
+          {this.state.assetsLoaded && this.state.isAuthenticationReady ? (
+            <View style={{ flex: 1 }}>
+              {this.state.isAuthenticated === true ? (
+                <AuthorizedNavigator />
+              ) : (
+                <UnauthorizedNavigator />
+              )}
+            </View>
+          ) : (
+            <AppLoading />
+          )}
+        </PersistGate>
       </Provider>
     );
   }
