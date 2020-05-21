@@ -18,10 +18,10 @@ A common use case for mobile apps is to have two sides to an app: an unauthorize
 
 Usually, the flow goes:
 
---App Loads
---Checks persisting storage for an authenticated user
---if one exists, show the authorized side of the app
---if one does not exist, show the unauthorized side
+1. App Loads
+2. Checks persisting storage for an authenticated user
+  - if one exists, show the authorized side of the app
+  - if one does not exist, show the unauthorized side
 
 This template facilitates this flow.
 
