@@ -53,22 +53,41 @@ export default Welcome;
 ```
 
 2. Import this component into `authorizedNavigator.js`
-3. Add it to the stack navigator object, like so:
+3. Add it to the stack navigator component, like so:
 
 ```js
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import React, { Component } from "react";
 import Home from "../screens/Home";
 import Welcome from "../screens/Welcome";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { connect } from "react-redux";
 
-const AuthorizedNavigator = createAppContainer(
-  createStackNavigator({
-    Home: { screen: Home },
-    Welcome: { screen: Welcome }, //<--- the new screen
-  })
-);
+const Stack = createStackNavigator();
 
-export default AuthorizedNavigator;
+class AuthorizedNavigator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Welcome" component={Welcome} /> //<--- new screen
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+}
+
+const mapStateToProps = () => {
+  return {};
+};
+
+export default connect(mapStateToProps)(AuthorizedNavigator);
+
 ```
 
 ### Redux
