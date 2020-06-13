@@ -1,4 +1,3 @@
-import initialState from "../constants/initialState.js";
 import { combineReducers } from "redux";
 
 const initialPersistState = {

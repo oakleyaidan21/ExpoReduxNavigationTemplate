@@ -1,26 +1,12 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { View, Text } from "react-native";
 
-class Unauthorized extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Unauthorized</Text>
-      </View>
-    );
-  }
+var s = require("../assets/styling/mainStyles");
+
+export default function Unauthorized(props) {
+  return (
+    <View style={s.defaultContainer}>
+      <Text>Unauthorized</Text>
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
-
-export default Unauthorized;
